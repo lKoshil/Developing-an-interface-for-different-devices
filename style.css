@@ -1,0 +1,125 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: clamp(10px, 2vw, 20px);
+    text-align: center;
+}
+
+nav {
+    margin: 15px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: clamp(14px, 2vw, 18px);
+}
+
+main {
+    flex: 1; 
+    padding: 20px;
+    overflow-y: auto; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.photo-description {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 100%;
+    transition: max-width 0.2s;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: clamp(10px, 2vw, 20px);
+}
+
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        margin: 10px 0;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .photo-description {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        font-size: clamp(12px, 3vw, 14px);
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    container-type: inline-size;
+}
+
+@container (min-width: 500px) {
+    .photo-description {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+@container (max-width: 500px) {
+    .photo-description {
+        width: 100%;
+        margin: 0;
+    }
+}
